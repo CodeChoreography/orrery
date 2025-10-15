@@ -1,6 +1,6 @@
 # orrery
 
-[![PyPI - Version](https://img.shields.io/pypi/v/orrery)](https://pypi.org/project/pyreporting/)
+[![PyPI - Version](https://img.shields.io/pypi/v/orrery)](https://pypi.org/project/orrery/)
 [![License](https://img.shields.io/github/license/CodeChoreography/orrery)](https://github.com/CodeChoreography/orrery/blob/main/LICENSE)
 [![Test](https://github.com/CodeChoreography/orrery/actions/workflows/test.yml/badge.svg)](https://github.com/CodeChoreography/orrery/actions/workflows/test.yml)
 [![lint](https://github.com/CodeChoreography/orrery/actions/workflows/lint.yml/badge.svg)](https://github.com/CodeChoreography/orrery/actions/workflows/lint.yml)
