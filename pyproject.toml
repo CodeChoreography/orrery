@@ -36,8 +36,26 @@ source = "vcs"
 
 [project.optional-dependencies]
 tests = ["pytest"]
+lint = [
+  "pylint"
+]
 
 [tool.pytest.ini_options]
 pythonpath = [
   "src",
+]
+
+[tool.pylint.main]
+source-roots = "src"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable=[
+  'no-else-return',
+  'no-else-raise',
+  'too-many-arguments',
+  'too-many-positional-arguments',
+  'too-few-public-methods',
+  'too-many-public-methods',
+  'no-name-in-module',
+  'too-many-function-args'
 ]
