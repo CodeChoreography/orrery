@@ -1,3 +1,6 @@
+"""Classes for implementing Models for storage of data with automated value
+change callbacks"""
+
 import copy
 from enum import Enum
 from typing import TypeVar, Generic, Type, Optional
@@ -8,6 +11,7 @@ T = TypeVar('T')
 
 
 class Model(Observable):
+    """Base class for storing values"""
     EVENT_VALUE_CHANGED = Event("valueChanged")
     EVENT_INVALIDATED = Event("Invalidated")
 
@@ -46,10 +50,12 @@ class Model(Observable):
         return callback_id
 
     def remove_value_changed_listener(self, callback_id):
+        """Remove a previously added observer for value changed events"""
         self.remove_observer(
             event=Model.EVENT_VALUE_CHANGED, callback_id=callback_id)
 
     def remove_invalidated_listener(self, callback_id):
+        """Remove a previously added observer for invalidated events"""
         self.remove_observer(
             event=Model.EVENT_INVALIDATED, callback_id=callback_id)
 
@@ -76,9 +82,13 @@ class Model(Observable):
         raise NotImplementedError
 
     def from_yaml(self, value):
+        """Set the model value using the value reprentation returned from the
+        YAML parser"""
         raise NotImplementedError
 
     def to_yaml(self):
+        """Return a representation of the model value suitable for storing in
+        YAML"""
         raise NotImplementedError
 
 
@@ -160,6 +170,9 @@ class ClassModel(ValueModel):
 
 
 class EnumValueModel(ValueModel, Generic[T]):
+    """Model for holding an Enumeration. Ensures safe encoding/decoding to
+    str when storing in YAML"""
+
     def __init__(self, enum_type: Type[T], default=None):
         super().__init__(default=default)
         self.enum_type = enum_type
@@ -172,6 +185,8 @@ class EnumValueModel(ValueModel, Generic[T]):
 
 
 class DependentModel(Model):
+    """A Model whose value depends on one or more other models. The Model's
+    value is automatically recalculated when any of the dependencies change"""
 
     def __init__(self, dependencies: Optional[list[Model]] = None,
                  name: Optional[str] = None):
@@ -182,9 +197,9 @@ class DependentModel(Model):
         self._dependencies = dependencies
         for dependency in dependencies:
             dependency.add_observer(event=Model.EVENT_VALUE_CHANGED,
-                                    callback=self.dependency_changed)
+                                    callback=self._dependency_changed)
             dependency.add_observer(event=Model.EVENT_INVALIDATED,
-                                    callback=self.dependency_invalidated)
+                                    callback=self._dependency_invalidated)
 
     def initialise(self, error_if_already_initialised: bool = True):
         pass
@@ -195,11 +210,13 @@ class DependentModel(Model):
                 return False
         return True
 
-    def dependency_invalidated(self, model):
+    def _dependency_invalidated(self, model):  # pylint:disable=unused-argument
+        """Callback when any dependency gives an invalidated event"""
         self._cached_value_is_valid = False
         self.notify(self.EVENT_INVALIDATED, model=self)
 
-    def dependency_changed(self, model):
+    def _dependency_changed(self, model):  # pylint:disable=unused-argument
+        """Callback when any dependency gives a changed event"""
         if self.initialised():
             if not self._cached_value_is_valid:
                 self._run_and_update_cached_value()
@@ -243,17 +260,19 @@ class IndirectDependentModel(Model):
         self._model_invalidation_callback_id = None
         self._last_parent = None
         parent_model.add_value_changed_listener(
-            callback=self.parent_value_changed)
+            callback=self._parent_value_changed)
         parent_model.add_invalidated_listener(
-            callback=self.parent_value_invalidated)
+            callback=self._parent_value_invalidated)
 
     def initialise(self, error_if_already_initialised: bool = True):
         pass
 
     def initialised(self) -> bool:
-        return self.parent_model.initialised() and self.parent_model.value.models.get_model(self.model_name).initialised()
+        return self.parent_model.initialised() and \
+               self.parent_model.value.models.get_model(
+                   self.model_name).initialised()
 
-    def parent_value_invalidated(self, model):
+    def _parent_value_invalidated(self, model):  # pylint:disable=unused-argument
         if self._model_callback_id:
             self._last_parent.models.remove_observer(
                 name=self.model_name,
@@ -266,21 +285,21 @@ class IndirectDependentModel(Model):
         self._last_parent = self.parent_model.value
         self._model_callback_id = self._last_parent.models.add_observer(
             name=self.model_name,
-            callback=self.model_value_changed
+            callback=self._model_value_changed
         )
         self._model_invalidation_callback_id = self._last_parent.models.add_observer(
             name=self.model_name,
-            callback=self.model_value_invalidated
+            callback=self._model_value_invalidated
         )
         self.notify(self.EVENT_INVALIDATED, model=self)
 
-    def parent_value_changed(self, model):
+    def _parent_value_changed(self, model):  # pylint:disable=unused-argument
         self.notify(self.EVENT_VALUE_CHANGED, model=self)
 
-    def model_value_changed(self, model):
+    def _model_value_changed(self, model):  # pylint:disable=unused-argument
         self.notify(self.EVENT_VALUE_CHANGED, model=self)
 
-    def model_value_invalidated(self, model):
+    def _model_value_invalidated(self, model):  # pylint:disable=unused-argument
         self.notify(self.EVENT_INVALIDATED, model=self)
 
     def _set_value(self, value):
@@ -291,19 +310,9 @@ class IndirectDependentModel(Model):
         return parent.models.get_model(self.model_name).value
 
 
-class ModelDefinition(object):
-    def __init__(self,
-                 model: Model = None,
-                 cached: bool = False,
-                 default=None,
-                 config_key=None):
-        self.model = model or ValueModel()
-        self.cached = cached
-        self.default = default
-        self.config_key = config_key
-
-
 class ModelRegistry:
+    """Holds a list of named Models"""
+
     def __init__(self):
         super().__init__()
         self._models: dict[str, Model] = {}
@@ -338,36 +347,51 @@ class ModelRegistry:
         """Return dictionary of registered model names to models"""
         return self._models
 
+    def model_names(self) -> Model:
+        """Return a Model containing a list of current model names"""
+        return self._model_names
+
     def add_observer(self, name: str, callback, **kwargs):
+        """Add observer to listen to changed callback of the specified Model"""
         return self.get_model(name=name).add_value_changed_listener(
             callback=callback, **kwargs)
 
     def remove_observer(self, name: str, callback_id):
+        """Remove previously added value changed observer"""
         self.get_model(name=name).\
             remove_value_changed_listener(callback_id=callback_id)
 
     def add_invalidated_observer(self, name: str, callback, **kwargs):
+        """Add observer to listen to invalidated callback of the specified
+        Model"""
         return self.get_model(name=name).add_invalidated_listener(
             callback=callback, **kwargs)
 
     def remove_invalidated_observer(self, name: str, callback_id):
+        """Remove previously added invalidated observer"""
         self.get_model(name=name).\
             remove_invalidated_listener(callback_id=callback_id)
 
 
 class GlobalModelRegistry(ModelRegistry):
-    def __init__(self):
-        super().__init__()
-        self._models: dict[str, Model] = {}
+    """A ModelRegistry where Models can be added with an additional identifying
+    prefix, allowing multiple Models of the same name to be added. An example
+    use might be an application which has multiple windows open, where each
+    window has its own set of Models (which might be stored in a ModelRegistry).
+    The prefix allows you to distinguish Models for different windows while
+    still maintaining a single global list of Models
+    """
 
     def add_model(self,
                   name: str,
-                  prefix: Optional[str] = None,
-                  model: Optional[Model] = None):
+                  model: Optional[Model] = None,
+                  prefix: Optional[str] = None
+                  ):
         """Add a model to this registry with the specified name
 
         Args:
             name: Name used to reference the model in the registry
+            prefix: Optional prefix which to be added to the model name
             model: The Model to add. If a model is not specified, a new
                    ValueModel will be created
         Returns:
