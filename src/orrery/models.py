@@ -316,6 +316,7 @@ class ModelRegistry:
     def __init__(self):
         super().__init__()
         self._models: dict[str, Model] = {}
+        self._model_names = ValueModel(value=[])
 
     def add_model(self,
                   name: str,
@@ -335,6 +336,7 @@ class ModelRegistry:
         if not model:
             model = ValueModel()
         self._models[name] = model
+        self._model_names.value = list(self._models.keys())
         return model
 
     def get_model(self, name: str) -> Model:
