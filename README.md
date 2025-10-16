@@ -1,4 +1,4 @@
-# orrery
+# Orrery
 
 [![PyPI - Version](https://img.shields.io/pypi/v/orrery)](https://pypi.org/project/orrery/)
 [![License](https://img.shields.io/github/license/CodeChoreography/orrery)](https://github.com/CodeChoreography/orrery/blob/main/LICENSE)
@@ -16,7 +16,7 @@ pip install orrery
 
 ## Update
 ```console
-pip install ---update orrery
+pip install --update orrery
 ```
 
 ## Documentation
