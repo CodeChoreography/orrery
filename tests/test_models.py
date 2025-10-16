@@ -1,4 +1,4 @@
-from src.orrery.models import Model, ModelRegistry, ValueModel
+from src.orrery.models import DependentModel, Model, ModelRegistry, ValueModel
 
 
 class MockObserver:
@@ -44,3 +44,31 @@ def test_model_names():
     assert observer.get_and_clear_changed_events() == [["Foo"]]
     registry.add_model(name="Bar", model=ValueModel())
     assert observer.get_and_clear_changed_events() == [["Foo", "Bar"]]
+
+
+def test_dependent_model():
+    model_1 = ValueModel()
+    model_2 = ValueModel()
+    get_result_fn = lambda dependencies: dependencies["model_1"].value + dependencies["model_2"].value
+    dm = DependentModel(get_result=get_result_fn, dependencies=dict(model_1=model_1, model_2=model_2))
+    assert not dm.initialised()
+    model_1.value = 2
+    model_2.value = 3
+    assert dm.initialised()
+    assert dm.value == 5
+
+
+def test_dependent_model_subclass():
+    class DependentModelSubclass(DependentModel):
+        def get_model_result(self):
+            return self.dependencies["model_1"].value + self.dependencies["model_2"].value
+
+    model_1 = ValueModel()
+    model_2 = ValueModel()
+    dm = DependentModelSubclass(dependencies=dict(model_1=model_1, model_2=model_2))
+    assert not dm.initialised()
+    model_1.value = 2
+    model_2.value = 3
+    assert dm.initialised()
+    assert dm.value == 5
+

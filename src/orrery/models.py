@@ -3,7 +3,7 @@ change callbacks"""
 
 import copy
 from enum import Enum
-from typing import TypeVar, Generic, Type, Optional
+from typing import Callable, TypeVar, Generic, Type, Optional
 
 from orrery.observable import Observable, Event
 
@@ -188,14 +188,16 @@ class DependentModel(Model):
     """A Model whose value depends on one or more other models. The Model's
     value is automatically recalculated when any of the dependencies change"""
 
-    def __init__(self, dependencies: Optional[list[Model]] = None,
+    def __init__(self, dependencies: dict[str, Model],
+                 get_result: Optional[Callable] = None,
                  name: Optional[str] = None):
         super().__init__()
         self.name = name
         self._cached_value = None
         self._cached_value_is_valid = False
-        self._dependencies = dependencies
-        for dependency in dependencies:
+        self.dependencies = dependencies
+        self._get_result = get_result
+        for dependency in dependencies.values():
             dependency.add_observer(event=Model.EVENT_VALUE_CHANGED,
                                     callback=self._dependency_changed)
             dependency.add_observer(event=Model.EVENT_INVALIDATED,
@@ -205,7 +207,7 @@ class DependentModel(Model):
         pass
 
     def initialised(self) -> bool:
-        for dependency in self._dependencies:
+        for dependency in self.dependencies.values():
             if not dependency.initialised():
                 return False
         return True
@@ -222,12 +224,14 @@ class DependentModel(Model):
                 self._run_and_update_cached_value()
 
     def get_model_result(self):
-        """Override this method to compute the value of the dependent model"""
-        raise NotImplementedError
-
-    def set_model_result(self):
-        """Override this method to set the value of the dependent model"""
-        raise NotImplementedError
+        """Computes the value of the dependent model. By default calls the
+        get_method passed in through the constructor. If you are subclassing
+        DependentModel, you can Override this method to define yor own custom
+        function for computing the dependent model result"""
+        if self._get_result:
+            return self._get_result(self.dependencies)
+        else:
+            raise NotImplementedError
 
     def _run_and_update_cached_value(self):
         self._cached_value = self.get_model_result()
@@ -240,7 +244,7 @@ class DependentModel(Model):
         return self._cached_value
 
     def _set_value(self, value):
-        self.set_model_result(value)
+        raise RuntimeError("DependentModel cannot be set")
 
     def from_yaml(self, value):
         raise RuntimeError("DependentModel does not support serialisation")
