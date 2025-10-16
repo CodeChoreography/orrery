@@ -69,20 +69,47 @@ the observers.
 
 ### Dependent models
 
-A dependent model is one that changes when other models change.
-You create a dependent model by subclassing `DependentModel` and defining a
-method `get_model_results` which computes the model value.
+A dependent model is one that depends upon the values of other models. This can
+be achieved using the DependentModel class. The models on which it depends
+are called dependencies.
+
+A DependentModel will automatically 
+update its value (and issue appropriate update events) when any of its dependencies
+change. This works recursively; i.e. a DependentModel can depend on other 
+DependentModels, and any model changes will cause the entire chain of models to update. 
+
+If used correctly, dependent models can be used to create a robust update 
+framework which ensures everything is always up-to-date. However, you must 
+ensure you do not have circular dependencies
+
+There are two ways to create dependent models using the DependentModel class.
+For simple models, you can specify two parameters to the DependentModel class;
+dependencies, which is a dictionary containing the dependency models, and a function which computes 
+the value of the dependent model. The function will be automatically called when
+required with the dependencies dictionary as its parameter. You can choose
+the dictionary keys
 ```python
-from orrery.models import Model, DependentModel
+from orrery.models import DependentModel, ValueModel
+model_a = ValueModel(value=2)
+model_b = ValueModel(value=3)
+dependencies = dict(model_a=model_a, model_b=model_b)
+get_result = lambda dependencies: dependencies["model_a"].value + dependencies["model_b"].value
+sum_model = DependentModel(dependencies=dependencies, get_result=get_result)
+print(sum_model.value)
+```
+
+Alternatively, you can subclassing `DependentModel` and define your own custom 
+method `get_model_results` which computes the model value.
+
+```python
+from orrery.models import Model, DependentModel, ValueModel
 
 class SumModel(DependentModel):
     def __init__(self, model_a: Model, model_b: Model):
-        self.model_a = model_a
-        self.model_b = model_b
-        super().__init__([model_a, model_b])
+        super().__init__(dict(model_a=model_a, model_b=model_b))
 
     def get_model_result(self):
-        return self.model_a.value + self.model_b.value
+        return self.dependencies["model_a"].value + self.dependencies["model_b"].value
 
 model_a = ValueModel(value=2)
 model_b = ValueModel(value=3)
