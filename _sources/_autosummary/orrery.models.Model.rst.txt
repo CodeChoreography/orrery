@@ -1,0 +1,45 @@
+orrery.models.Model
+===================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: Model
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Model.add_invalidated_listener
+      ~Model.add_observer
+      ~Model.add_value_changed_listener
+      ~Model.compare
+      ~Model.from_yaml
+      ~Model.has_value
+      ~Model.initialise
+      ~Model.initialised
+      ~Model.notify
+      ~Model.remove_invalidated_listener
+      ~Model.remove_observer
+      ~Model.remove_value_changed_listener
+      ~Model.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Model.EVENT_INVALIDATED
+      ~Model.EVENT_VALUE_CHANGED
+      ~Model.value
+   
+   

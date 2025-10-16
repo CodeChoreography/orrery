@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>orrery Tutorial &#8212; orrery  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/pydata-custom.css?v=c27e38e3" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="orrery" href="_autosummary/orrery.html" />
+    <link rel="prev" title="orrery" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">orrery  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="_autosummary/orrery.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="_autosummary/orrery.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">orrery Tutorial</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="orrery-tutorial">
+<h1>orrery Tutorial<a class="headerlink" href="#orrery-tutorial" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="simple-models">
+<h2>Simple models<a class="headerlink" href="#simple-models" title="Link to this heading">#</a></h2>
+<p>To create a model holding a simple value, use ValueModel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">orrery.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValueModel</span>
+<span class="n">my_model</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you want to give the model an initial value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Change the value of the model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Foo&quot;</span>
+</pre></div>
+</div>
+<p>Read the value of a model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">current_value</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">value</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current model value is </span><span class="si">{</span><span class="n">current_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ValueModels generally work with deep copies of values. This is to avoid unpredictable
+situations where a containing object is modified externally - see below.</p>
+</section>
+<section id="observe-changes-to-a-model">
+<h2>Observe changes to a model<a class="headerlink" href="#observe-changes-to-a-model" title="Link to this heading">#</a></h2>
+<p>Define a class to listen to callbacks</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CallbackClass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">value_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New value: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">callback_class</span> <span class="o">=</span> <span class="n">CallbackClass</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>Note: at present the callback needs to be a class function</em></p>
+<p>Add an observer to listed to changes to the model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">add_value_changed_listener</span><span class="p">(</span><span class="n">callback_class</span><span class="o">.</span><span class="n">value_changed</span><span class="p">)</span>
+<span class="n">my_model</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</section>
+<section id="class-models">
+<h2>Class models<a class="headerlink" href="#class-models" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">ClassModel</span></code> can be used to store a class instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">orrery.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassModel</span>
+<span class="n">my_object</span> <span class="o">=</span> <span class="n">SomeObject</span><span class="p">()</span>
+<span class="n">my_model</span> <span class="o">=</span> <span class="n">ClassModel</span><span class="p">(</span><span class="n">my_object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Be aware that Orrery cannot detect if changes are made within the class instance.
+It will only issue events if the instance itself is changed to a different
+instance.</p>
+</section>
+<section id="note-on-models-storing-classes-and-containers">
+<h2>Note on models storing classes and containers<a class="headerlink" href="#note-on-models-storing-classes-and-containers" title="Link to this heading">#</a></h2>
+<p>A ValueModel can store any python object, including containers (lists, dictionaries, etc).
+You should be aware that</p>
+</section>
+<section id="initial-values">
+<h2>Initial values<a class="headerlink" href="#initial-values" title="Link to this heading">#</a></h2>
+<p>Models start in an uninitialised state. When a value is set, the model is
+initialised. You can use the Model’s <code class="docutils literal notranslate"><span class="pre">has_value()</span></code> method to determine if the
+Model has been initialised</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_model</span><span class="o">.</span><span class="n">has_value</span><span class="p">())</span>
+<span class="n">my_model</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Foo&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_model</span><span class="o">.</span><span class="n">has_value</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If you want to create a model with an initial value, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you add an observer to an unititialised Model, the observer will
+receive a callback when the Model is set. If you add an observer to a Model
+which already has a value, the observer will immediately receive a callback with
+the value.</p>
+<p>This ensures that te behaviour of your application is the same
+regardless of whether you set the values of the Models before or after you add
+the observers.</p>
+<p>See the section below for how to use the <code class="docutils literal notranslate"><span class="pre">default</span></code> poarameter for delayed
+initialisation.</p>
+</section>
+<section id="constant-models">
+<h2>Constant models<a class="headerlink" href="#constant-models" title="Link to this heading">#</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">ConstantModel</span></code> for models whose value should never change.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">orrery.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConstantModel</span>
+<span class="n">my_model</span> <span class="o">=</span> <span class="n">ConstantModel</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ConstantModel</span></code> will throw an exception if its value is changed. The purpose is to</p>
+<p>The purpose of a ConstantModel is where the code requires</p>
+</section>
+<section id="dependent-models">
+<h2>Dependent models<a class="headerlink" href="#dependent-models" title="Link to this heading">#</a></h2>
+<p>A dependent model is one that depends upon the values of other models. This can
+be achieved using the DependentModel class. The models on which it depends
+are called dependencies.</p>
+<p>A DependentModel will automatically
+update its value (and issue appropriate update events) when any of its dependencies
+change. This works recursively; i.e. a DependentModel can depend on other
+DependentModels, and any model changes will cause the entire chain of models to update.</p>
+<p>If used correctly, dependent models can be used to create a robust update
+framework which ensures everything is always up-to-date. However, you must
+ensure you do not have circular dependencies</p>
+<p>There are two ways to create dependent models using the DependentModel class.
+For simple models, you can specify two parameters to the DependentModel class;
+dependencies, which is a dictionary containing the dependency models, and a function which computes
+the value of the dependent model. The function will be automatically called when
+required with the dependencies dictionary as its parameter. You can choose
+the dictionary keys</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">orrery.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">DependentModel</span><span class="p">,</span> <span class="n">ValueModel</span>
+<span class="n">model_a</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">model_b</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model_a</span><span class="o">=</span><span class="n">model_a</span><span class="p">,</span> <span class="n">model_b</span><span class="o">=</span><span class="n">model_b</span><span class="p">)</span>
+<span class="n">get_result</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">dependencies</span><span class="p">:</span> <span class="n">dependencies</span><span class="p">[</span><span class="s2">&quot;model_a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">dependencies</span><span class="p">[</span><span class="s2">&quot;model_b&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="n">sum_model</span> <span class="o">=</span> <span class="n">DependentModel</span><span class="p">(</span><span class="n">dependencies</span><span class="o">=</span><span class="n">dependencies</span><span class="p">,</span> <span class="n">get_result</span><span class="o">=</span><span class="n">get_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_model</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, you can subclassing <code class="docutils literal notranslate"><span class="pre">DependentModel</span></code> and define your own custom
+method <code class="docutils literal notranslate"><span class="pre">get_model_results</span></code> which computes the model value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">orrery.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">DependentModel</span><span class="p">,</span> <span class="n">ValueModel</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SumModel</span><span class="p">(</span><span class="n">DependentModel</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_a</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span> <span class="n">model_b</span><span class="p">:</span> <span class="n">Model</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">model_a</span><span class="o">=</span><span class="n">model_a</span><span class="p">,</span> <span class="n">model_b</span><span class="o">=</span><span class="n">model_b</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dependencies</span><span class="p">[</span><span class="s2">&quot;model_a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dependencies</span><span class="p">[</span><span class="s2">&quot;model_b&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">model_a</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">model_b</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sum_model</span> <span class="o">=</span> <span class="n">SumModel</span><span class="p">(</span><span class="n">model_a</span><span class="p">,</span> <span class="n">model_b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_model</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The key use of a DependentModel is that it will <em>automatically</em> recompute its
+value and fire value changed events whenever any of its dependencies change.</p>
+<p>For example, if we use the CallbackClass we defined previously to listen for
+changes in our SumModel clas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_model</span><span class="o">.</span><span class="n">add_value_changed_listener</span><span class="p">(</span><span class="n">callback_class</span><span class="o">.</span><span class="n">value_changed</span><span class="p">)</span>
+<span class="n">model_a</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<p>We see that the change in the value of model_a automatically triggers an
+update to the SumModel.</p>
+<section id="delayed-initialisation-and-default-values">
+<h3>Delayed initialisation and default values<a class="headerlink" href="#delayed-initialisation-and-default-values" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ValueModels</span></code> can also be given default values on creation. These are used for
+delayed initialisation. You may not know the required value of a ValueModel at
+the time it is created (for example, if the values are read in later from a
+configuration file or web API) but you can set a default value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">ValueModel</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_model</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Later, after your code has had a chance to optionally set the initial model
+value, you can call the Model’s <code class="docutils literal notranslate"><span class="pre">initialise()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_model</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the value has not been set, the model will then take on the default value.</p>
+<p>Why is this different from setting an initial value? Because an initial value
+will cause an immediate callback with the initial value, and then a second
+callback when the delayed initialisation occurs. Using a default value, the
+initial callback only occurs once. This avoids the GUI flickering you can see
+with applications using other frameworks.</p>
+</section>
+</section>
+<section id="deep-copies-and-containers">
+<h2>Deep copies and containers<a class="headerlink" href="#deep-copies-and-containers" title="Link to this heading">#</a></h2>
+<p>Orrery models mostly work with deep copies of values. This is to avoid unpredictable
+situations where a containing object is modified externally.
+For example, if you stored a list in an Orrery model, and you then modified the same list,
+Orrery would have no way to know that the list had been modified externally
+(Python does not have a general way to do this). So
+Orrery actually stores a deep copy of the list, and you need to explicitly update
+the model if you want to change it.</p>
+<p>If you want to store an object without the deep copy, use ClassModel (see above),
+but be aware of the limitations that it cannot detect changes to the contents
+of the underlying object.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-models">Simple models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observe-changes-to-a-model">Observe changes to a model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-models">Class models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-models-storing-classes-and-containers">Note on models storing classes and containers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-values">Initial values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-models">Constant models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependent-models">Dependent models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delayed-initialisation-and-default-values">Delayed initialisation and default values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-copies-and-containers">Deep copies and containers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Code Choreography Limited.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

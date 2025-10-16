@@ -1,0 +1,45 @@
+orrery.models.ValueModel
+========================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: ValueModel
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ValueModel.add_invalidated_listener
+      ~ValueModel.add_observer
+      ~ValueModel.add_value_changed_listener
+      ~ValueModel.compare
+      ~ValueModel.from_yaml
+      ~ValueModel.has_value
+      ~ValueModel.initialise
+      ~ValueModel.initialised
+      ~ValueModel.notify
+      ~ValueModel.remove_invalidated_listener
+      ~ValueModel.remove_observer
+      ~ValueModel.remove_value_changed_listener
+      ~ValueModel.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ValueModel.EVENT_INVALIDATED
+      ~ValueModel.EVENT_VALUE_CHANGED
+      ~ValueModel.value
+   
+   

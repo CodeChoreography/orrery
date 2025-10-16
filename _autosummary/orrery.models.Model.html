@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>orrery.models.Model &#8212; orrery  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydata-custom.css?v=c27e38e3" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/orrery.models.Model';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="orrery.models.ModelRegistry" href="orrery.models.ModelRegistry.html" />
+    <link rel="prev" title="orrery.models.IndirectDependentModel" href="orrery.models.IndirectDependentModel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">orrery  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="orrery.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="orrery.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="orrery.models.html">orrery.models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.ClassModel.html">orrery.models.ClassModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.ConstantModel.html">orrery.models.ConstantModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.DependentModel.html">orrery.models.DependentModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.EnumValueModel.html">orrery.models.EnumValueModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.GlobalModelRegistry.html">orrery.models.GlobalModelRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.IndirectDependentModel.html">orrery.models.IndirectDependentModel</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">orrery.models.Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.ModelRegistry.html">orrery.models.ModelRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.models.ValueModel.html">orrery.models.ValueModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="orrery.observable.html">orrery.observable</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="orrery.observable.Event.html">orrery.observable.Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orrery.observable.Observable.html">orrery.observable.Observable</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="orrery.html" class="nav-link">orrery</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="orrery.models.html" class="nav-link">orrery.models</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">orrery.models.Model</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="orrery-models-model">
+<h1>orrery.models.Model<a class="headerlink" href="#orrery-models-model" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="orrery.models.Model">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Model</span></span><a class="reference internal" href="../_modules/orrery/models.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="orrery.observable.Observable.html#orrery.observable.Observable" title="orrery.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a></p>
+<p>Base class for storing values</p>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.add_invalidated_listener" title="orrery.models.Model.add_invalidated_listener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_invalidated_listener</span></code></a></p></td>
+<td><p>Add an observer to listen to notifications that this model has become invalid</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.add_observer" title="orrery.models.Model.add_observer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_observer</span></code></a></p></td>
+<td><p>Add an observer to receive notifications for the specified event</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.add_value_changed_listener" title="orrery.models.Model.add_value_changed_listener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_value_changed_listener</span></code></a></p></td>
+<td><p>Add an observer to listen for changes to this model's value'</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.compare" title="orrery.models.Model.compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare</span></code></a></p></td>
+<td><p>Return True if the model value is equal to the specified value</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.from_yaml" title="orrery.models.Model.from_yaml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_yaml</span></code></a></p></td>
+<td><p>Set the model value using the value reprentation returned from the YAML parser</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.has_value" title="orrery.models.Model.has_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_value</span></code></a></p></td>
+<td><p>Return True if the model has valid value</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.initialise" title="orrery.models.Model.initialise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialise</span></code></a></p></td>
+<td><p>Set model to its default state</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.initialised" title="orrery.models.Model.initialised"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialised</span></code></a></p></td>
+<td><p>Return True if the model value has been set (even if set to None)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.notify" title="orrery.models.Model.notify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">notify</span></code></a></p></td>
+<td><p>Trigger a callback on all observers for this event</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.remove_invalidated_listener" title="orrery.models.Model.remove_invalidated_listener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_invalidated_listener</span></code></a></p></td>
+<td><p>Remove a previously added observer for invalidated events</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.remove_observer" title="orrery.models.Model.remove_observer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_observer</span></code></a></p></td>
+<td><p>Remove existing observer for the specified event</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orrery.models.Model.remove_value_changed_listener" title="orrery.models.Model.remove_value_changed_listener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_value_changed_listener</span></code></a></p></td>
+<td><p>Remove a previously added observer for value changed events</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.to_yaml" title="orrery.models.Model.to_yaml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_yaml</span></code></a></p></td>
+<td><p>Return a representation of the model value suitable for storing in YAML</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Attributes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">EVENT_INVALIDATED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">EVENT_VALUE_CHANGED</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orrery.models.Model.value" title="orrery.models.Model.value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code></a></p></td>
+<td><p>Return value of model</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="orrery.models.Model.NotInitialised">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NotInitialised</span></span><a class="reference internal" href="../_modules/orrery/models.html#Model.NotInitialised"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.NotInitialised" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Special class for indicating a value should be non-initialised</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ObserverList</span></span><a class="headerlink" href="#orrery.models.Model.ObserverList" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class for managing observers and sending notifications for events</p>
+<p>Makes special use of WeakKeyDictionary and WeakMethod so that the
+Observable won’t prevent observers from being destroyed, and if an
+observer is destroyed it will automatically be removed from the
+observers</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CallbackArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<p>Create new instance of CallbackArgs(callback, kwargs)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.__add__" title="Link to this definition">#</a></dt>
+<dd><p>Return self+value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.__mul__" title="Link to this definition">#</a></dt>
+<dd><p>Return self*value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.callback">
+<span class="sig-name descname"><span class="pre">callback</span></span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.callback" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.count" title="Link to this definition">#</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9223372036854775807</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.index" title="Link to this definition">#</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.CallbackArgs.kwargs">
+<span class="sig-name descname"><span class="pre">kwargs</span></span><a class="headerlink" href="#orrery.models.Model.ObserverList.CallbackArgs.kwargs" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.add_observer">
+<span class="sig-name descname"><span class="pre">add_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.add_observer" title="Link to this definition">#</a></dt>
+<dd><p>Add an observer to receive notification events</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callback</strong> – bound method which will receive the callbacks</p></li>
+<li><p><strong>kwargs</strong> – additional arguments which will be passed to the
+callback</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">event_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.notify" title="Link to this definition">#</a></dt>
+<dd><p>Trigger a callback on all observers which are still in
+existence</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.ObserverList.remove_observer">
+<span class="sig-name descname"><span class="pre">remove_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.ObserverList.remove_observer" title="Link to this definition">#</a></dt>
+<dd><p>Remove an observer previously added with add_observer()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback_id</strong> – the callback id returned by the add_observer() call</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.add_invalidated_listener">
+<span class="sig-name descname"><span class="pre">add_invalidated_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.add_invalidated_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.add_invalidated_listener" title="Link to this definition">#</a></dt>
+<dd><p>Add an observer to listen to notifications that this model has
+become invalid</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.add_observer">
+<span class="sig-name descname"><span class="pre">add_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.add_observer" title="Link to this definition">#</a></dt>
+<dd><p>Add an observer to receive notifications for the specified event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> – describes a unique event generated by this object</p></li>
+<li><p><strong>callback</strong> – bound method which will receive the callbacks</p></li>
+<li><p><strong>kwargs</strong> – additional arguments to be passed to the callbacks - these
+are added to the arguments passed in through the call to
+notify()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An id which can be used to remove the callback if necessary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.add_value_changed_listener">
+<span class="sig-name descname"><span class="pre">add_value_changed_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.add_value_changed_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.add_value_changed_listener" title="Link to this definition">#</a></dt>
+<dd><p>Add an observer to listen for changes to this model’s value’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.compare" title="Link to this definition">#</a></dt>
+<dd><p>Return True if the model value is equal to the specified value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.from_yaml">
+<span class="sig-name descname"><span class="pre">from_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.from_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.from_yaml" title="Link to this definition">#</a></dt>
+<dd><p>Set the model value using the value reprentation returned from the
+YAML parser</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.has_value">
+<span class="sig-name descname"><span class="pre">has_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.has_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.has_value" title="Link to this definition">#</a></dt>
+<dd><p>Return True if the model has valid value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.initialise">
+<span class="sig-name descname"><span class="pre">initialise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_if_already_initialised</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.initialise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.initialise" title="Link to this definition">#</a></dt>
+<dd><p>Set model to its default state</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.initialised">
+<span class="sig-name descname"><span class="pre">initialised</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.initialised"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.initialised" title="Link to this definition">#</a></dt>
+<dd><p>Return True if the model value has been set (even if set to None)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">event_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.notify" title="Link to this definition">#</a></dt>
+<dd><p>Trigger a callback on all observers for this event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> – describes a unique event generated by this object</p></li>
+<li><p><strong>event_args</strong> – named arguments to be passed to pass to callbacks</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.remove_invalidated_listener">
+<span class="sig-name descname"><span class="pre">remove_invalidated_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.remove_invalidated_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.remove_invalidated_listener" title="Link to this definition">#</a></dt>
+<dd><p>Remove a previously added observer for invalidated events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.remove_observer">
+<span class="sig-name descname"><span class="pre">remove_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orrery.models.Model.remove_observer" title="Link to this definition">#</a></dt>
+<dd><p>Remove existing observer for the specified event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> – describes a unique event generated by this object</p></li>
+<li><p><strong>callback_id</strong> – the identifier passed when the observer was added</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.remove_value_changed_listener">
+<span class="sig-name descname"><span class="pre">remove_value_changed_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.remove_value_changed_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.remove_value_changed_listener" title="Link to this definition">#</a></dt>
+<dd><p>Remove a previously added observer for value changed events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orrery.models.Model.to_yaml">
+<span class="sig-name descname"><span class="pre">to_yaml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/orrery/models.html#Model.to_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#orrery.models.Model.to_yaml" title="Link to this definition">#</a></dt>
+<dd><p>Return a representation of the model value suitable for storing in
+YAML</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="orrery.models.Model.value">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#orrery.models.Model.value" title="Link to this definition">#</a></dt>
+<dd><p>Return value of model</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.NotInitialised"><code class="docutils literal notranslate"><span class="pre">Model.NotInitialised</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.__add__"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.__add__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.__mul__"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.__mul__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.callback"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.callback</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.count"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.count()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.index"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.index()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.CallbackArgs.kwargs"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.CallbackArgs.kwargs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.add_observer"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.add_observer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.notify"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.notify()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.ObserverList.remove_observer"><code class="docutils literal notranslate"><span class="pre">Model.ObserverList.remove_observer()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.add_invalidated_listener"><code class="docutils literal notranslate"><span class="pre">Model.add_invalidated_listener()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.add_observer"><code class="docutils literal notranslate"><span class="pre">Model.add_observer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.add_value_changed_listener"><code class="docutils literal notranslate"><span class="pre">Model.add_value_changed_listener()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.compare"><code class="docutils literal notranslate"><span class="pre">Model.compare()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.from_yaml"><code class="docutils literal notranslate"><span class="pre">Model.from_yaml()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.has_value"><code class="docutils literal notranslate"><span class="pre">Model.has_value()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.initialise"><code class="docutils literal notranslate"><span class="pre">Model.initialise()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.initialised"><code class="docutils literal notranslate"><span class="pre">Model.initialised()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.notify"><code class="docutils literal notranslate"><span class="pre">Model.notify()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.remove_invalidated_listener"><code class="docutils literal notranslate"><span class="pre">Model.remove_invalidated_listener()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.remove_observer"><code class="docutils literal notranslate"><span class="pre">Model.remove_observer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.remove_value_changed_listener"><code class="docutils literal notranslate"><span class="pre">Model.remove_value_changed_listener()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.to_yaml"><code class="docutils literal notranslate"><span class="pre">Model.to_yaml()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orrery.models.Model.value"><code class="docutils literal notranslate"><span class="pre">Model.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Code Choreography Limited.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+orrery.observable.Observable
+============================
+
+.. currentmodule:: orrery.observable
+
+.. autoclass:: Observable
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Observable.add_observer
+      ~Observable.notify
+      ~Observable.remove_observer
+   
+   
+
+   
+   
+   

@@ -1,0 +1,45 @@
+orrery.models.ConstantModel
+===========================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: ConstantModel
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ConstantModel.add_invalidated_listener
+      ~ConstantModel.add_observer
+      ~ConstantModel.add_value_changed_listener
+      ~ConstantModel.compare
+      ~ConstantModel.from_yaml
+      ~ConstantModel.has_value
+      ~ConstantModel.initialise
+      ~ConstantModel.initialised
+      ~ConstantModel.notify
+      ~ConstantModel.remove_invalidated_listener
+      ~ConstantModel.remove_observer
+      ~ConstantModel.remove_value_changed_listener
+      ~ConstantModel.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ConstantModel.EVENT_INVALIDATED
+      ~ConstantModel.EVENT_VALUE_CHANGED
+      ~ConstantModel.value
+   
+   

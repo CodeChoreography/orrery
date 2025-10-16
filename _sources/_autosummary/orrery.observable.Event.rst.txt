@@ -1,0 +1,71 @@
+orrery.observable.Event
+=======================
+
+.. currentmodule:: orrery.observable
+
+.. autoclass:: Event
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Event.capitalize
+      ~Event.casefold
+      ~Event.center
+      ~Event.count
+      ~Event.encode
+      ~Event.endswith
+      ~Event.expandtabs
+      ~Event.find
+      ~Event.format
+      ~Event.format_map
+      ~Event.index
+      ~Event.isalnum
+      ~Event.isalpha
+      ~Event.isascii
+      ~Event.isdecimal
+      ~Event.isdigit
+      ~Event.isidentifier
+      ~Event.islower
+      ~Event.isnumeric
+      ~Event.isprintable
+      ~Event.isspace
+      ~Event.istitle
+      ~Event.isupper
+      ~Event.join
+      ~Event.ljust
+      ~Event.lower
+      ~Event.lstrip
+      ~Event.maketrans
+      ~Event.partition
+      ~Event.removeprefix
+      ~Event.removesuffix
+      ~Event.replace
+      ~Event.rfind
+      ~Event.rindex
+      ~Event.rjust
+      ~Event.rpartition
+      ~Event.rsplit
+      ~Event.rstrip
+      ~Event.split
+      ~Event.splitlines
+      ~Event.startswith
+      ~Event.strip
+      ~Event.swapcase
+      ~Event.title
+      ~Event.translate
+      ~Event.upper
+      ~Event.zfill
+   
+   
+
+   
+   
+   

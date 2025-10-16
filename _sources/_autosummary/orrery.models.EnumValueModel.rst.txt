@@ -1,0 +1,45 @@
+orrery.models.EnumValueModel
+============================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: EnumValueModel
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~EnumValueModel.add_invalidated_listener
+      ~EnumValueModel.add_observer
+      ~EnumValueModel.add_value_changed_listener
+      ~EnumValueModel.compare
+      ~EnumValueModel.from_yaml
+      ~EnumValueModel.has_value
+      ~EnumValueModel.initialise
+      ~EnumValueModel.initialised
+      ~EnumValueModel.notify
+      ~EnumValueModel.remove_invalidated_listener
+      ~EnumValueModel.remove_observer
+      ~EnumValueModel.remove_value_changed_listener
+      ~EnumValueModel.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~EnumValueModel.EVENT_INVALIDATED
+      ~EnumValueModel.EVENT_VALUE_CHANGED
+      ~EnumValueModel.value
+   
+   

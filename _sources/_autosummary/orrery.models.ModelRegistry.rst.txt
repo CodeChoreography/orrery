@@ -1,0 +1,32 @@
+orrery.models.ModelRegistry
+===========================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: ModelRegistry
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ModelRegistry.add_invalidated_observer
+      ~ModelRegistry.add_model
+      ~ModelRegistry.add_observer
+      ~ModelRegistry.get_model
+      ~ModelRegistry.model_names
+      ~ModelRegistry.models
+      ~ModelRegistry.remove_invalidated_observer
+      ~ModelRegistry.remove_observer
+   
+   
+
+   
+   
+   

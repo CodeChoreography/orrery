@@ -1,0 +1,45 @@
+orrery.models.IndirectDependentModel
+====================================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: IndirectDependentModel
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~IndirectDependentModel.add_invalidated_listener
+      ~IndirectDependentModel.add_observer
+      ~IndirectDependentModel.add_value_changed_listener
+      ~IndirectDependentModel.compare
+      ~IndirectDependentModel.from_yaml
+      ~IndirectDependentModel.has_value
+      ~IndirectDependentModel.initialise
+      ~IndirectDependentModel.initialised
+      ~IndirectDependentModel.notify
+      ~IndirectDependentModel.remove_invalidated_listener
+      ~IndirectDependentModel.remove_observer
+      ~IndirectDependentModel.remove_value_changed_listener
+      ~IndirectDependentModel.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~IndirectDependentModel.EVENT_INVALIDATED
+      ~IndirectDependentModel.EVENT_VALUE_CHANGED
+      ~IndirectDependentModel.value
+   
+   

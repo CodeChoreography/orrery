@@ -1,0 +1,33 @@
+orrery.observable
+=================
+
+.. automodule:: orrery.observable
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+      :nosignatures:
+   
+      Event
+      Observable
+   
+   
+
+   
+   
+   
+
+
+

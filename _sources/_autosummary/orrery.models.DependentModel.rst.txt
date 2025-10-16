@@ -1,0 +1,46 @@
+orrery.models.DependentModel
+============================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: DependentModel
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~DependentModel.add_invalidated_listener
+      ~DependentModel.add_observer
+      ~DependentModel.add_value_changed_listener
+      ~DependentModel.compare
+      ~DependentModel.from_yaml
+      ~DependentModel.get_model_result
+      ~DependentModel.has_value
+      ~DependentModel.initialise
+      ~DependentModel.initialised
+      ~DependentModel.notify
+      ~DependentModel.remove_invalidated_listener
+      ~DependentModel.remove_observer
+      ~DependentModel.remove_value_changed_listener
+      ~DependentModel.to_yaml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DependentModel.EVENT_INVALIDATED
+      ~DependentModel.EVENT_VALUE_CHANGED
+      ~DependentModel.value
+   
+   

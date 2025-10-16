@@ -1,0 +1,33 @@
+orrery.models.GlobalModelRegistry
+=================================
+
+.. currentmodule:: orrery.models
+
+.. autoclass:: GlobalModelRegistry
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~GlobalModelRegistry.add_invalidated_observer
+      ~GlobalModelRegistry.add_model
+      ~GlobalModelRegistry.add_observer
+      ~GlobalModelRegistry.get_model
+      ~GlobalModelRegistry.model_names
+      ~GlobalModelRegistry.models
+      ~GlobalModelRegistry.register_all
+      ~GlobalModelRegistry.remove_invalidated_observer
+      ~GlobalModelRegistry.remove_observer
+   
+   
+
+   
+   
+   
