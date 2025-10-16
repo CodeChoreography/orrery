@@ -91,19 +91,18 @@ class Model(Observable):
         YAML"""
         raise NotImplementedError
 
+    class NotInitialised:
+        """Special class for indicating a value should be non-initialised"""
 
-class NotInitialised:
-    """Special class for indicating a value should be non-initialised"""
 
-
-NOT_INITIALISED = NotInitialised()
+NOT_INITIALISED = Model.NotInitialised()
 
 
 class ValueModel(Model):
     """A simple model holding a single object value. This model does not depend
      on other models and its value only changes when set explicitly"""
 
-    def __init__(self, default=None, value=NOT_INITIALISED):
+    def __init__(self, value=NOT_INITIALISED, default=None, ):
         super().__init__()
         self._default = default
         self._set_value(value)
