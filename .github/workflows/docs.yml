@@ -40,10 +40,12 @@ jobs:
 
       - name: Build docs using Sphinx
         run: |
-          sphinx-build -M html docs/source _site/html
+          sphinx-build -M html docs/source _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/html/
 
   # Deployment job
   deploy:
