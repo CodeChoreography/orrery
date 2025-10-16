@@ -22,12 +22,12 @@ pip install ---update orrery
 ## Documentation
 
 - [Tutorial](https://codechoreography.github.io/orrery/tutorial.html)
-- [API reference](https://codechoreography.github.io/orrery/_autosummary/pyreporting.html)
+- [API reference](https://codechoreography.github.io/orrery/_autosummary/orrery.html)
 - [Documentation homepage](https://CodeChoreography.github.io/orrery)
 
 ## Quick start
 
-See the [Tutorial](https://codechoreography.github.io/pyreporting/tutorial.html) page for more information 
+See the [Tutorial](https://codechoreography.github.io/orrery/tutorial.html) page for more information 
 
 Create a model containing an initial value
 ```python
