@@ -39,6 +39,12 @@ tests = ["pytest"]
 lint = [
   "pylint"
 ]
+docs = [
+  "sphinx",
+  "myst-parser",
+  "pydata-sphinx-theme",
+  "sphinx-autodoc-typehints"
+]
 
 [tool.pytest.ini_options]
 pythonpath = [
