@@ -40,7 +40,7 @@ jobs:
 
       - name: Build docs using Sphinx
         run: |
-          sphinx-build -M html docs/source _site
+          sphinx-build -M html docs/source _site/html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
