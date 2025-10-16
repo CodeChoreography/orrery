@@ -21,9 +21,9 @@ pip install ---update orrery
 
 ## Documentation
 
-- [Tutorial](https://codechoreography.github.io/pyreporting/tutorial.html)
-- [API reference](https://codechoreography.github.io/pyreporting/_autosummary/pyreporting.html)
-- [Documentation homepage](https://CodeChoreography.github.io/pyreporting)
+- [Tutorial](https://codechoreography.github.io/orrery/tutorial.html)
+- [API reference](https://codechoreography.github.io/orrery/_autosummary/pyreporting.html)
+- [Documentation homepage](https://CodeChoreography.github.io/orrery)
 
 ## Quick start
 
