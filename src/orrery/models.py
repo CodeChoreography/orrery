@@ -60,7 +60,7 @@ class Model(Observable):
             event=Model.EVENT_INVALIDATED, callback_id=callback_id)
 
     def has_value(self) -> bool:
-        """Return True if the model has valid value """
+        """Return True if the model has a valid value (not None)"""
         return self.initialised() and self.value is not None
 
     def initialised(self) -> bool:
@@ -433,3 +433,38 @@ class GlobalModelRegistry(ModelRegistry):
     @staticmethod
     def _key(prefix: str, name: str):
         return prefix + '.' + name if prefix else name
+
+
+class EqualityModel(DependentModel):
+    """Model which returns True if one or more pairs of Models have equal
+    values
+
+    Example usage:
+        EqualityModel([(a, b)]) will have a True value if a.value == b.value
+
+        EqualityModel([(a, b), (c, d)]) will have a True value if
+        a.value == b.value and c.value == d.value
+
+    """
+
+    def __init__(self, models: list[tuple[Model, Model]]):
+        """Create an EqualityModel
+
+        Args:
+            models: a list of tuples. Each tuple is a pair of two Models.
+                    These two Models must have equal values, and only if this is
+                    true for each tuple then the EqualityModel will return True
+        """
+        self.models = models
+        dependencies = {}
+        for index, (model_1, model_2) in enumerate(models):
+            dependencies[f"model_{index}a"] = model_1
+            dependencies[f"model_{index}b"] = model_2
+        super().__init__(dependencies=dependencies)
+
+    def get_model_result(self):
+        equal = True
+        for model_1, model_2 in self.models:
+            equal = equal and model_1.has_value() and model_2.has_value() and \
+                    model_1.value == model_2.value
+        return equal

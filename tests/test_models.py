@@ -1,4 +1,6 @@
-from src.orrery.models import DependentModel, Model, ModelRegistry, ValueModel
+from src.orrery.models import ConstantModel, DependentModel, EqualityModel, \
+    Model, \
+    ModelRegistry, ValueModel
 
 
 class MockObserver:
@@ -72,3 +74,30 @@ def test_dependent_model_subclass():
     assert dm.initialised()
     assert dm.value == 5
 
+
+def test_equality_model():
+    model_1a = ValueModel()
+    model_1b = ValueModel()
+    em = EqualityModel(models=[(model_1a, model_1b)])
+    assert not em.initialised()
+    assert not em.has_value()
+    model_1a.value = 5
+    assert not em.initialised()
+    assert not em.has_value()
+    model_1b.value = 6
+    assert em.initialised()
+    assert em.has_value()
+    assert em.value is False
+    model_1b.value = 5
+    assert em.value is True
+
+    model_2a = ValueModel(value="Foo")
+    model_2b = ConstantModel(value="Bar")
+
+    em2 = EqualityModel(models=[
+        (model_1a, model_1b),
+        (model_2a, model_2b)
+    ])
+    assert em2.value is False
+    model_2a.value = "Bar"
+    assert em2.value is True
