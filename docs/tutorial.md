@@ -69,17 +69,16 @@ You should be aware that
 
 ## Initial values
 Models start in an uninitialised state. When a value is set, the model is
-initialised. You can use the Model's `has_value()` method to determine if the
+initialised. You can use the Model's `initialised()` method to determine if the
 Model has been initialised
 ```python
 my_model = ValueModel()
-print(my_model.has_value())
+print(my_model.initialised())
 my_model.value = "Foo"
-print(my_model.has_value())
+print(my_model.initialised())
 ```
 
-
-If you want to create a model with an initial value, use:
+If you want to create a ValueModel with an initial value, use:
 ```python
 my_model = ValueModel(value="Foo")
 ```
@@ -94,6 +93,28 @@ the observers.
 
 See the section below for how to use the `default` poarameter for delayed 
 initialisation.
+
+
+## Setting models to have no value
+
+Set the model's value to `None` to specify that the model has
+no current value. 
+```python
+my_model.value = None
+```
+
+You can use the `has_value()` method to determine if the Model currently has a
+valid value set
+```python
+my_model.has_value()
+```
+
+Note that Orrery distinguishes between a Model not yet being initialised and a 
+Model being set to having no value.
+If a Model has not been initialised, `has_value()` and `initialised()` will both 
+return False. If a Model has been set to a `None` value, `initialised()` will 
+return True but `has_value()` will return False.
+
 
 ## Constant models
 
